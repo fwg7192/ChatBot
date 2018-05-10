@@ -26,6 +26,6 @@ bot.dialog('/',[
 	builder.Prompts.text(session,'What is your Name?');
 },
 	function(session,results){
-		session.send('Hello ', results.response, '! How may I help?');
+		session.send('Hello ' + results.response + '! How may I help?');
 	}
 ]);

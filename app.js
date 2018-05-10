@@ -19,7 +19,13 @@ server.post('/api/messages', connector.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 
-bot.dialog('/',function(session){
+bot.dialog('/',[
+
+	function(session){
 	session.send("Hello There");
-}
-);
+	builder.Prompts.text(session,'What is your Name?');
+},
+	function(session,results){
+		session.send('Hello ', results.response, '! How may I help?');
+	}
+]);

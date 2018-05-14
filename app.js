@@ -18,6 +18,7 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
+var toStorage = new builder.MemoryBotStorage();
 
 bot.dialog('/',[
 
@@ -27,5 +28,6 @@ bot.dialog('/',[
 },
 	function(session,results){
 		session.send('Hello ' + results.response + '! How may I help?');
+		session.endConversation();
 	}
-]);
+])

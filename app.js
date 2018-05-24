@@ -77,7 +77,7 @@ var bot1 = new builder.UniversalBot(connector, [
         session.dialogData.semester = results.response;
         session.beginDialog('askForStudyTime');
     },
-    function (session, results) {
+    function (session, results) { 
         session.dialogData.studyTime = results.response;
 
         // Process request and display reservation details
